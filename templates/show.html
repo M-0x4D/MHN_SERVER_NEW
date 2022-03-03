@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Hacker Data </h2>
+<div>
+    
+    
+        {% if user.is_authenticated %}
+       <li>
+        <a href="{% url 'logout' %}" >Logout</a>
+       </li>
+       {% else %}
+        <li>
+        <a href=" {% url 'login' %}" >Login</a>
+       </li>
+        {% endif %}
+       
+  
+    
+</div>
+
+
+<table>
+  <tr>
+    <th>Hacker ip</th>
+    <th>Router ip</th>
+    <th>Web page</th>
+    <th>Date time</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    
+    <td>{{i.hacker_ip}}</td>
+    <td>{{i.router_ip}}</td>
+    <td>{{i.web_bage}}</td>
+    <td>{{i.attach_time}}</td>
+    
+  </tr>
+  {% endfor %}
+  
+</table>
+
+</body>
+</html>
